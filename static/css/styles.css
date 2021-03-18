@@ -1,0 +1,131 @@
+body {
+    display: grid;
+    background-color: #1F2041;
+    min-height: 50vh;
+    grid-template-rows: 1fr 2fr 1fr;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+}
+
+nav {
+    display: grid;
+    width: 100%;
+    height: 80%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-items {
+    display: flex;
+    margin: 5%;
+    font-size: 1.3em;
+    padding: 2%;
+    border: none;
+    border-radius: 2em;
+    text-decoration: none;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+a.header-items:link, a.header-items:visited, a.header-items:focus {
+    background: #4B3F72;
+    color: white;
+}
+
+a.header-items:hover {
+    box-shadow: 0 0 0 2px #d0d0d0;
+}
+
+a.header-items:active {
+    background-color: #3C335C;
+    color:white;
+}
+
+main {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+}
+
+main > * {
+    margin:3%;
+    justify-self: center;
+    transition: all 0.1s;
+}
+
+main > *:hover {
+    box-shadow: 0 0 0 2px #d0d0d0;
+}
+
+.span-two {
+    grid-row: span 2;
+}
+
+.span-three {
+    grid-row: span 3;
+}
+
+.span-three-columns {
+    grid-column: span 3;
+}
+
+#calc {
+    grid-row: span 6;
+    background-color: #c38829;
+    border: transparent;
+    border-radius: 1em;
+    color: white;
+}
+
+#calc:active {
+    background-color: #dca857;
+}
+
+footer {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+
+#Github {
+    justify-self: center;
+    padding: 1%;
+    border-radius: 1em;
+    margin: 3%;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+
+a#Github:link, a#Github:visited, a#Github:focus {
+    box-shadow: 0 0 0 2px #d0d0d0;
+    color: white;
+}
+
+a#Github:hover {
+    background-color: #c38829;
+}
+
+a#Github:active {
+    background-color: #dca857;
+}
+
+#facebook {
+    justify-self: right;
+}
+
+#youtube {
+    justify-self: left;
+}

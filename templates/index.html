@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pe Vremea Mea</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/scripts.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="header-items" href="#">Cine sunt?</a>
+            <a class="header-items" href="#">Cum funcționează?</a>
+        </nav>
+    </header>
+    <main>
+        <input class="span-two" id="old-year" type="text" placeholder="An vechi, de la 1970 la 2019">
+        <button id="calc" type="button">CALCULEAZA</button>
+        <input class="span-three" id="new-sum" type="text" placeholder="Lei vechi">
+        <input class="span-two" id="old-sum" type="text" placeholder="Lei de convertit">
+        <input class="span-three" id="lei-noi" type="text" placeholder="Lei noi" readonly>
+        <input class="span-two" id="new-year" type="text" placeholder="An nou, de la 1971 la 2020">
+    </main>
+    <footer>
+        <a class="span-three-columns" id="Github" href="https://github.com/LiviuSopon">Github@LiviuSopon</a>
+        <a href="#" class="social-btn" id="facebook">
+            <img alt="Facebook Logo" src="{{ url_for('static', filename='images/f_logo_RGB-Blue_58.png') }}" width="50"></img>
+        </a>
+        <a href="#" class="social-btn" id="instagram">
+            <img alt="Instagram Logo" src="{{ url_for('static', filename='images/Instagram.png') }}" width="50"></img>
+        </a>
+        <a href="#" class="social-btn" id="youtube">
+            <img alt="YouYube Logo" src="{{ url_for('static', filename='images/youtube_social_circle_red.png') }}" width="50"></img>
+        </a>
+    </footer>
+</body>
+</html>

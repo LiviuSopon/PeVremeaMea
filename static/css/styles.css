@@ -1,7 +1,56 @@
+@media  screen and (max-width: 700px)  {
+    nav {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    header {
+        height: 70%;
+    }
+
+    .header-items {
+        font-size: 4vmin;
+        margin: 2%;
+    }
+    
+    main {
+        grid-template-rows: repeat(7, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        height: 90%;
+    }
+
+    .span-two {
+        grid-row: span 1;
+        grid-column: span 3;
+    }
+    
+    .span-three {
+        grid-row: span 1;
+        grid-column: span 3;
+        order:2;
+    }
+    
+    .span-three-columns {
+        grid-column: span 3;
+    }
+
+    #calc {
+        position:relative;
+        left:25%;
+        grid-row: span 2;
+        grid-column: span 2;
+        order:1;
+    }
+
+    main > *{
+        margin:2%;
+    }
+}
+
 body {
     display: grid;
     background-color: #1F2041;
-    min-height: 50vh;
+    min-height: 50%;
     grid-template-rows: 1fr 2fr 1fr;
     align-items: center;
     justify-content: center;
@@ -11,29 +60,71 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 10vh;
 }
 
 nav {
     display: grid;
     width: 100%;
     height: 80%;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
     align-items: center;
     justify-content: center;
 }
 
 .header-items {
     display: flex;
-    margin: 5%;
-    font-size: 1.3em;
+    /* font-size: 3vmin; */
     padding: 2%;
     border: none;
     border-radius: 2em;
     text-decoration: none;
     justify-content: center;
     transition: all 0.2s;
+}
+
+@media  screen and (min-width: 700px) {
+    nav {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    header {
+        height: 10%;
+    }
+
+    .header-items {
+        font-size: 3vmin;
+        margin: 5%;
+    }
+
+    main {
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .span-two {
+        grid-row: span 2;
+    }
+    
+    .span-three {
+        grid-row: span 3;
+    }
+    
+    .span-three-columns {
+        grid-column: span 3;
+    }
+
+    #calc {
+        grid-row: span 6;
+    }
+
+    main {
+        height: 50%;
+    }
+
+    main > * {
+        margin:3%;
+    }
+
 }
 
 a.header-items:link, a.header-items:visited, a.header-items:focus {
@@ -52,35 +143,20 @@ a.header-items:active {
 
 main {
     display: grid;
-    grid-template-rows: repeat(6, 1fr);
-    grid-template-columns: repeat(3, 1fr);
     width: 100%;
 }
 
 main > * {
-    margin:3%;
     justify-self: center;
     transition: all 0.1s;
+    width:85%;
 }
 
 main > *:hover {
     box-shadow: 0 0 0 2px #d0d0d0;
 }
 
-.span-two {
-    grid-row: span 2;
-}
-
-.span-three {
-    grid-row: span 3;
-}
-
-.span-three-columns {
-    grid-column: span 3;
-}
-
 #calc {
-    grid-row: span 6;
     background-color: #c38829;
     border: transparent;
     border-radius: 1em;
@@ -97,10 +173,12 @@ footer {
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     align-items: center;
+    height: 100%
 }
 
 #Github {
     justify-self: center;
+    grid-column: span 3;
     padding: 1%;
     border-radius: 1em;
     margin: 3%;

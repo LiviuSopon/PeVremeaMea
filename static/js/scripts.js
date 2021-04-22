@@ -1,3 +1,9 @@
+function numberFormat(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return parts.join(",");
+}
+
 document.getElementById("calc").onclick = function calculate() {
     let inflation = {
         '1970':'0,0',
@@ -54,18 +60,31 @@ document.getElementById("calc").onclick = function calculate() {
     let sum = parseFloat(document.getElementById("old-sum").value);
     let old = parseInt(document.getElementById("old-year").value);
     let nw = parseInt(document.getElementById("new-year").value);
-    for (i = old; i < nw; i++) {
-        sum += ((parseFloat(inflation[i])/100) * sum);
-        console.log(sum);
+    if (old < nw) {
+        for (i = old; i < nw; i++) {
+            sum += ((parseFloat(inflation[i])/100) * sum);
+            console.log(sum);
+        }
     }
-
-    if (old < 2007 && nw > 2007) {
-        let new_sum = sum / 10000;
-        new_sum = parseFloat(new_sum).toFixed(2);
-        document.getElementById('lei-noi').value = new_sum + " lei noi";
+    else {
+        for (i = old; i > nw; i--) {
+            sum -= ((parseFloat(inflation[i])/100) * sum);
+            console.log(sum);
+        }
     }
 
     sum = parseFloat(sum).toFixed(2);
-
-    document.getElementById("new-sum").value = sum + " lei vechi";
+    
+    if (old < 2007 && nw > 2007) {
+        let new_sum = sum / 10000;
+        new_sum = parseFloat(new_sum).toFixed(2);
+        document.getElementById('lei-noi').value = numberFormat(new_sum) + " lei noi";
+        document.getElementById("new-sum").value = numberFormat(sum) + " lei vechi";
+    } else if(old < 2007 && nw < 2007) {
+        document.getElementById("lei-noi").value = '';
+        document.getElementById("new-sum").value = numberFormat(sum) + " lei vechi";
+    } else {
+        document.getElementById("new-sum").value = '';
+        document.getElementById("lei-noi").value = numberFormat(sum) + " lei noi";
+    }
 };
